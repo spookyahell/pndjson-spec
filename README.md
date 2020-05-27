@@ -24,7 +24,7 @@ A common use case for the original NDJSON is delivering multiple instances of JS
 
 
 ### 1.2 Terminology
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119. \[[RFC2119]\]7
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119. \[[RFC2119]\]
 
 The term "newline character" refers to the newline character itself - `\n` (0x0A) or in combination with a carriage return (0x0D) - `\r\n`
 
