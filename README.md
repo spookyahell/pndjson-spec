@@ -61,21 +61,23 @@ Each JSON text MUST conform to the \[[RFC7159]\] standard and MUST be written to
 
 All serialized data MUST use the UTF8 encoding. And the output (when saved to a file) must be saved with Byte Order Mark, namely UTF-8-BOM (`utf-8-sig` in python).
 
+Every JSON text that is a valid JSON object or list must be folowed by two (2) newline characters.<br/>
+Two newline characters mark the ending of one JSON text and — unless EOF occurs — the beginnging of a new one.
+
 ### 3.2 Parsing
 
-The parser MUST accept newline as line delimiter `\n` (0x0A) as well as carriage return and newline `\r\n` (0x0D0A). 
+The parser MUST accept newline as line delimiter as defined in the section titled **Terminology** of this specification. 
 
-If the JSON text is not parsable, the parser SHOULD raise an error. The parser MAY silently ignore empty lines, e.g. `\n\n`. This behavior MUST be documented and SHOULD be configurable by the user of the parser.
+If the JSON text is not parsable, the parser SHOULD raise an error. The parser MUST silently ignore empty lines, e.g. `\n\n`. This MUST NOT be configurable by the user of the parser.
 
 ### 3.3 MediaType and File Extensions
 
-The MediaType \[[RFC4288]\] for Newline Delimited JSON SHOULD be _application/x-ndjson_.
+The MediaType \[[RFC4288]\] for Newline Delimited JSON SHOULD be _application/x-pndjson_.
 
-When saved to a file, the file extension SHOULD be _.ndjson_.
-
+When saved to a file, the file extension SHOULD be _.pjson_ or _.pndjson_.
 ## 4. Copyright
 
-This specification is copyrighted by the authors named in section 4.1.
+This specification is copyrighted by the author named in section 4.1.
 
 It is free to use for any purposes commercial or non-commercial.
 
@@ -91,7 +93,7 @@ Visit [ndjson](https://github.com/ndjson/ndjson-spec) for a list of authors who 
 ### 4.2 Contact
 
 This specification and any related work is located at <https://github.com/spookyahell/pndjson>.<br/>
-Please refrain from using the issue tracker, located at <https://github.com/ndjson/ndjson-spec/issues>.<br/>
+Please refrain from using the issue tracker, located at <https://github.com/spookyahell/pndjson/issues>.<br/>
 The format probably won't be changed even if people have valid reasons to object to the specification. They are welcome to create their own format. This is my format.
 
 ## A. References
