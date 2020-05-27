@@ -30,6 +30,7 @@ The term "newline character" refers to the newline character itself - `\n` (0x0A
 
 ## 2. Example PNDJSON
 
+Example #1 (with `\n\n` line separators)
 ~~~~~
 {
   "some": "thing"
@@ -41,6 +42,31 @@ The term "newline character" refers to the newline character itself - `\n` (0x0A
   "quux": true
 }
 
+{
+  "may": {
+    "include": "nested",
+    "objects": [
+      "and",
+      "arrays"
+    ]
+  }
+}
+~~~~~
+Example #2 (including captions)
+~~~~~
+EXAMPLE JSON
+{
+  "some": "thing"
+}
+
+2nd EXAMPLE JSON
+{
+  "foo": 17,
+  "bar": false,
+  "quux": true
+}
+
+3rd EXAMPLE JSON
 {
   "may": {
     "include": "nested",
@@ -66,7 +92,9 @@ The existance of one empty line marks the ending of one JSON text and — unless
 
 After the empty line (the two new line characters) it MAY be allowed to add a title soley BEFORE the JSON text to give it a title/caption, this IS NOT required to be part of a parser and/or application that produces files in PNDjson format, but could be a disired advanced functionality.<br/>
 Any caption MUST only include UTF-8 compatible characters.<br/>
-It SHOULD not exceed a length of 50 and MAY not exceed a maximum length of 100 chars.
+It SHOULD not exceed a length of 50 and MAY not exceed a maximum length of 100 chars.<br/>
+Captions SHOULD be (mostly) capitalized to visually mark a heading.<br/>
+No other limitations MAY apply for the caption.
 
 ### 3.2 Parsing
 
