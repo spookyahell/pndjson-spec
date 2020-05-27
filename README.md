@@ -1,32 +1,54 @@
 ---
-title: NDJSON - Newline delimited JSON
+title: PNDJSON - Pretty Newline delimited JSON
 version: 1.0.0
-last_update: 2014-10-19
+last_update: 2020-05-28
 created: 2013-07-05
 ---
 
-# NDJSON - Newline delimited JSON
+# PNDJSON - Pretty Newline delimited JSON
 
-A standard for delimiting JSON in stream protocols.
+A standard for delimiting JSON in stream protocols while also pretty printing the output.
 
 ## 1. Introduction
 
 ## 1.1 About
 
-There is currently no standard for transporting instances of JSON text within a stream protocol, apart from \[[Websockets]\], which is unnecessarily complex for non-browser applications.
+There are already a number of stanadrds for newline delimited JSON text within a stream protocol, apart from \[[Websockets]\], which is unnecessarily complex for non-browser applications.<br/>
+Here's some:<br/>
+[JSON Lines](http://jsonlines.org/)<br/>
+[ndjson](https://github.com/ndjson/ndjson-spec)<br/>
+[ldjson](https://github.com/finnp/ldjson-spec) (fork of ndjson; in draft mode since 2014)
 
-A common use case for NDJSON is delivering multiple instances of JSON text through streaming protocols like TCP or UNIX Pipes. It can also be used to store semi-structured data.
+A common use case for PNDJSON is delivering multiple instances of JSON text through streaming protocols like TCP or UNIX Pipes. It can also be used to store semi-structured data.
 
 
 ### 1.2 Terminology
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119. \[[RFC2119]\]
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119. \[[RFC2119]\]7
 
-## 2. Example NDJSON
+The term "newline character" refers to the newline character itself - `\n` (0x0A) or in combination with a carriage return (0x0D) - `\r\n`
+
+## 2. Example PNDJSON
 
 ~~~~~
- {"some":"thing"}
- {"foo":17,"bar":false,"quux":true}
- {"may":{"include":"nested","objects":["and","arrays"]}}
+{
+  "some": "thing"
+}
+
+{
+  "foo": 17,
+  "bar": false,
+  "quux": true
+}
+
+{
+  "may": {
+    "include": "nested",
+    "objects": [
+      "and",
+      "arrays"
+    ]
+  }
+}
 ~~~~~
 (with `\n` line separators)
 
@@ -34,9 +56,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ### 3.1 Serialization
 
-Each JSON text MUST conform to the \[[RFC7159]\] standard and MUST be written to the stream followed by the newline character `\n` (0x0A). The newline character MAY be preceded by a carriage return `\r` (0x0D). The JSON texts MUST NOT contain newlines or carriage returns.
+Each JSON text MUST conform to the \[[RFC7159]\] standard and MUST be written to the stream followed by the newline character. The JSON texts MAY contain any amount of newlines but MAY not use more than ONE (1) newline at a time, every newline within a single JSON text is to be followed by JSON style text.
 
-All serialized data MUST use the UTF8 encoding.
+All serialized data MUST use the UTF8 encoding. And the output (when saved to a file) must be saved with Byte Order Mark, namely UTF-8-BOM (`utf-8-sig` in python).
 
 ### 3.2 Parsing
 
