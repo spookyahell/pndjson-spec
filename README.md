@@ -13,11 +13,12 @@ A standard for delimiting JSON in stream protocols while also pretty printing th
 
 ## 1.1 About
 
-There are already a number of stanadrds for newline delimited JSON text within a stream protocol, apart from \[[Websockets]\], which is unnecessarily complex for non-browser applications.<br/>
+There are already a number of stanadrds for newline delimited JSON text within a stream protocol, apart from \[[Websockets]\], which is unnecessarily complex for non-browser applications.
+
 Here's some:<br/>
-[JSON Lines](http://jsonlines.org/)<br/>
-[ndjson](https://github.com/ndjson/ndjson-spec) (where this spec was originally forked from)<br/>
-[ldjson](https://github.com/finnp/ldjson-spec) (fork of ndjson; in draft mode since 2014)
+* [JSON Lines](http://jsonlines.org/)<br/>
+* [ndjson](https://github.com/ndjson/ndjson-spec) (where this spec was originally forked from)<br/>
+* [ldjson](https://github.com/finnp/ldjson-spec) (fork of ndjson; in draft mode since 2014)
 
 Intended use case for PNDJSON is storing human-readable json texts in one `anything.json` file.
 A common use case for the original NDJSON is delivering multiple instances of JSON text through streaming protocols like TCP or UNIX Pipes. It can also be used to store semi-structured data. I thought okay, lets have the original in here too, what the heck?. But this particular format is probably not great for streaming via TCP. In fact if you're doing that I think I am compelled to have to stress that it is NOT a desired format, but if it helps you: Not gonna stop you.
