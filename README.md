@@ -62,7 +62,8 @@ Each JSON text MUST conform to the \[[RFC7159]\] standard and MUST be written to
 All serialized data MUST use the UTF8 encoding. And the output (when saved to a file) must be saved with Byte Order Mark, namely UTF-8-BOM (`utf-8-sig` in python).
 
 Every JSON text that is a valid JSON object or list must be folowed by two (2) newline characters.<br/>
-Two newline characters mark the ending of one JSON text and — unless EOF occurs — the beginnging of a new one.
+The existance of one empty line marks the ending of one JSON text and — unless EOF occurs — the beginnging of a new one.
+After the empty line (the two new line characters) it MAY be allowed to add a title soley BEFORE the JSON text to give it a title/caption, this IS NOT required to be part of a parser and/or application that produces files in PNDjson format, but could be a disired advanced functionality.
 
 ### 3.2 Parsing
 
