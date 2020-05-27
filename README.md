@@ -2,7 +2,7 @@
 title: PNDJSON - Pretty Newline delimited JSON
 version: 1.0.0
 last_update: 2020-05-28
-created: 2013-07-05
+created: 2013-07-05 (the original); 2020-05-28 (this repo)
 ---
 
 # PNDJSON - Pretty Newline delimited JSON
@@ -16,10 +16,11 @@ A standard for delimiting JSON in stream protocols while also pretty printing th
 There are already a number of stanadrds for newline delimited JSON text within a stream protocol, apart from \[[Websockets]\], which is unnecessarily complex for non-browser applications.<br/>
 Here's some:<br/>
 [JSON Lines](http://jsonlines.org/)<br/>
-[ndjson](https://github.com/ndjson/ndjson-spec)<br/>
+[ndjson](https://github.com/ndjson/ndjson-spec)<br/> (where this spec was originally forked from)
 [ldjson](https://github.com/finnp/ldjson-spec) (fork of ndjson; in draft mode since 2014)
 
-A common use case for PNDJSON is delivering multiple instances of JSON text through streaming protocols like TCP or UNIX Pipes. It can also be used to store semi-structured data.
+Intended use case for PNDJSON is storing human-readable json texts in one `anything.json` file.
+A common use case for the original NDJSON is delivering multiple instances of JSON text through streaming protocols like TCP or UNIX Pipes. It can also be used to store semi-structured data. I thought okay, lets have the original in here too, what the heck?. But this particular format is probably not great for streaming via TCP. In fact if you're doing that I think I am compelled to have to stress that it is NOT a desired format, but if it helps you: Not gonna stop you.
 
 
 ### 1.2 Terminology
@@ -74,35 +75,24 @@ When saved to a file, the file extension SHOULD be _.ndjson_.
 
 ## 4. Copyright
 
-This specification is copyrighted by the authors named in section 4.1. It is free to use for any purposes commercial or non-commercial.
+This specification is copyrighted by the authors named in section 4.1.
+
+It is free to use for any purposes commercial or non-commercial.
+
+When you use in a commercial product, the author would love a donation (one-time or reoccurring).<br/>
+Use the author's email to contact him about how to do this: <vidner123@gmail.com>
 
 ### 4.1 Authors
 
-The following authors are responsible for the NDJSON core-specification:
+This specification is mainly authored and maintained by @spookyhahell (Trademark pending)
 
-~~~~
-Thorsten Hoeger
-Taimos GmbH
-Hohenzollernstrasse 32
-D-73262 Reichenbach
-thorsten.hoeger@taimos.de
-~~~~
-~~~~
-Chris Dew
-chris.dew@barricane.com
-~~~~
-~~~~
-Finn Pauls
-ich@finnpauls.de
-~~~~
-~~~~
-Jim Wilson
-~~~~
+Visit [ndjson](https://github.com/ndjson/ndjson-spec) for a list of authors who are responsible of the original ndjson format.
 
 ### 4.2 Contact
 
-This specification and any related work is located at <https://github.com/ndjson>. 
-Discussion and help is located at <https://github.com/ndjson/ndjson-spec/issues>. 
+This specification and any related work is located at <https://github.com/spookyahell/pndjson>.<br/>
+Please refrain from using the issue tracker, located at <https://github.com/ndjson/ndjson-spec/issues>.<br/>
+The format probably won't be changed even if people have valid reasons to object to the specification. They are welcome to create their own format. This is my format.
 
 ## A. References
 
